@@ -20,4 +20,16 @@ class ProjectFlowsTest < ActionDispatch::IntegrationTest
   	# Also assert that the tests we visit has the created projects listed
   end
 
+  test "navigation update" do
+    visit '/'
+    assert_equal root_path, current_path
+
+    assert_equal "Home", find('ul.nav li.active').text
+
+    visit '/projects'
+    assert_equal projects_path, current_path
+
+    assert_equal "Projects", find('ul.nav li.active').text
+  end
+
 end

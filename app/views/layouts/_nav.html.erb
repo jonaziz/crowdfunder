@@ -3,8 +3,16 @@
     <div class="container">
 			<a class="brand">CrowdFunder</a>
       <ul class="nav">
-        <li><%= link_to "Home", root_url%></li>
-        <li class="active"><%= link_to "Projects", projects_url%></li>
+        <% if controller_name == "welcome" %>
+          <li class="active"><%= link_to "Home", root_url%></li>
+        <% else %>
+          <li><%= link_to "Home", root_url%></li>
+        <% end %>
+        <% if controller_name == "projects" %>
+          <li class="active"><%= link_to "Projects", projects_url%></li>
+        <% else %>
+          <li><%= link_to "Projects", projects_url%></li>
+        <% end %>
       </ul>
     </div>
   </div>
