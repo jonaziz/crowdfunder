@@ -14,5 +14,6 @@ class ActiveSupport::TestCase
   # Adding something else to include with ActionDispatch Integration Testing
   class ActionDispatch::IntegrationTest
   	include Capybara::DSL
+    Capybara.app = Crowdfunder::Application
   end
 end
