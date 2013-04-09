@@ -2,7 +2,7 @@
 
 <ul>
 <% @projects.each do |project| %>
-	<li><a href="#"><%= project.title %></a></li>
+	<li><%= link_to project.title, "#" %></a></li>
 	<p><%= project.teaser %></p>
 <% end %>
 </ul>
