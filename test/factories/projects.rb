@@ -8,4 +8,5 @@ FactoryGirl.define do
   	description "These are really great shoes."
   	goal 100000
   end
+
 end

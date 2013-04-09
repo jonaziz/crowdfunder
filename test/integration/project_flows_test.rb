@@ -7,8 +7,16 @@ class ProjectFlowsTest < ActionDispatch::IntegrationTest
 
   test "the index page lists all our projects" do
   	# Ideally, this test should create several projects in DB (via FG)
+  	p1 = FactoryGirl.create(:project)
+  	p2 = FactoryGirl.create(:project, title: "Waterproof Whiteboard")
+  	p3 = FactoryGirl.create(:project, title: "Something Else")
+
   	visit '/projects'
   	assert page.has_content?('Project Listing')
+
+  	assert page.has_content?('WiFi-sniffing Shoes')
+  	assert page.has_content?('Waterproof Whiteboard')
+  	assert page.has_content?('Something Else')
   	# Also assert that the tests we visit has the created projects listed
   end
 
