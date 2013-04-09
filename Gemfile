@@ -22,6 +22,8 @@ end
 
 gem 'jquery-rails'
 
+gem 'sorcery'
+
 group :tools do
 	gem 'rb-fsevent', :require => false # mac
     gem 'rb-inotify', :require => false # linux
