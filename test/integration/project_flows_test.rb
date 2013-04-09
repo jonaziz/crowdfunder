@@ -32,4 +32,12 @@ class ProjectFlowsTest < ActionDispatch::IntegrationTest
     assert_equal "Projects", find('ul.nav li.active').text
   end
 
+  test "project link goes to project" do
+    p1 = FactoryGirl.create(:project)
+
+    visit '/projects'
+    assert_equal project_path(p1), first('ul.project-list li a')['href']
+    assert page.has_content?(p1.title)
+  end
+
 end

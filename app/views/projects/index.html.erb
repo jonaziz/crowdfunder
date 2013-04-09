@@ -1,8 +1,8 @@
 <h1>Project Listing</h1>
 
-<ul>
+<ul class="project-list">
 <% @projects.each do |project| %>
-	<li><%= link_to project.title, "#" %></a></li>
+	<li><%= link_to project.title, project %></a></li>
 	<p><%= project.teaser %></p>
 <% end %>
 </ul>
