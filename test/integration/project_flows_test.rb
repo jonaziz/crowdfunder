@@ -18,6 +18,12 @@ class ProjectFlowsTest < ActionDispatch::IntegrationTest
   	assert page.has_content?('Waterproof Whiteboard')
   	assert page.has_content?('Something Else')
   	# Also assert that the tests we visit has the created projects listed
+  
+    # Alternative to test product link / page
+    click_link 'Waterproof Whiteboard'
+    assert_equal project_path(p2), current_path
+    assert find('h1:first').has_content? p2.title
+
   end
 
   test "navigation update" do
@@ -32,12 +38,15 @@ class ProjectFlowsTest < ActionDispatch::IntegrationTest
     assert_equal "Projects", find('ul.nav li.active').text
   end
 
-  test "project link goes to project" do
-    p1 = FactoryGirl.create(:project)
+  # Alternative above
+  ## This is less correct, especially due to the h1 checl
+  ## because it appears on /projects
+  # test "project link goes to project" do
+  #   p1 = FactoryGirl.create(:project)
 
-    visit '/projects'
-    assert_equal project_path(p1), first('ul.project-list li a')['href']
-    assert page.has_content?(p1.title)
-  end
+  #   visit '/projects'
+  #   assert_equal project_path(p1), first('ul.project-list li a')['href']
+  #   assert page.has_content?(p1.title)
+  # end
 
 end
