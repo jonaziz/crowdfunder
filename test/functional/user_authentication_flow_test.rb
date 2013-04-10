@@ -37,9 +37,21 @@ class UserAuthenticationFlowTest < ActionDispatch::IntegrationTest
     assert find('.alert:first').has_content?("Try again")
   end
 
-  test "logout" do 
+  test "logout" do
+    Capybara.current_driver = Capybara.javascript_driver
+    user = get_signed_in_user
+
+    ## Need to be sure to use a js-ready driver
+    visit '/projects'
+    click_link 'Logout'
+
+    assert_equal root_path, current_path
+    ## Explicity return to default driver if not in setup
   end
 
   test "log in" do 
+    get_signed_in_user 
+    assert_equal root_path, current_path
+    assert find('.navbar').has_link?('Logout')
   end
 end
