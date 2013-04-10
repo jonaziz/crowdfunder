@@ -6,11 +6,11 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new params[:user]
-		if @user.save
-			auto_login(@user)
-			redirect_to root_path, notice: "Your account was created!"
-		else
-			render :new
-		end
+  		if @user.save
+  			auto_login(@user) # Log them in right away. No account verification required
+  			redirect_to root_path, notice: "Account created."
+  		else
+  			render :new
+  	end
 	end
 end

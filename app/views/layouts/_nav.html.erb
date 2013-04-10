@@ -6,6 +6,15 @@
           <li class="<%= "active" if controller_name == "welcome"%>"><%= link_to "Home", root_url%></li>
           <li class="<%= "active" if controller_name == "projects"%>"><%= link_to "Projects", projects_url%></li>
       </ul>
+
+      <div class="pull-right">
+		<% if logged_in? %>
+			<%= link_to 'Logout', '#', class: 'btn' %>
+		<% else %>
+			<%= link_to 'Sign Up', [:new, :user], class: 'btn btn-primary' %>
+		<% end %>
+	  </div>
+
     </div>
   </div>
 </div>
