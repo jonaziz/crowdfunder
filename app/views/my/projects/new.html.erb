@@ -1,2 +1,24 @@
-<h1>My::Projects#new</h1>
+<h1>New Project</h1>
 <p>Find me in app/views/my/projects/new.html.erb</p>
+
+<hr/>
+
+
+<%= form_for [:my, @project] do |f| %>
+
+	<div class="span6">
+
+		<%= render 'shared/form_errors', :f => f %>
+
+		
+		<%= f.text_field :title, placeholder: "Project title", class: "input-block-level" %>
+		<%= f.text_field :teaser, placeholder: "What makes your project great?", class: "input-block-level" %>
+
+		<%= f.text_area :description, placeholder: "Tell the world about your great idea...", class: "input-block-level" %>
+		<%= f.number_field :goal, class: "input-block-level" %>
+		
+		<div class="form-actions">
+			<%= f.submit 'Create Project', class: 'btn btn-primary' %>
+		</div>
+	</div>
+<% end %>

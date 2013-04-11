@@ -1,5 +1,9 @@
 <h1>My Projects</h1>
 
+<hr/>
+
+<p><%= link_to 'New Project', [:new, :my, :project], class: 'btn btn-primary' %></p>
+
 <ul>
 	<% @projects.each do |project| %>
 		<li><%= project.title %></li>
