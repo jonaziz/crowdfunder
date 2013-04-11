@@ -65,6 +65,12 @@ class My::ProjectFlowsTest < ActionDispatch::IntegrationTest
 
 	  	assert page.has_content?("Amazing Invention")
 
-	  end
+	end
+
+	test "not logged in user should be redirect to login" do
+		visit my_projects_url
+		
+		assert_equal new_session_path, current_path
+	end
 
 end

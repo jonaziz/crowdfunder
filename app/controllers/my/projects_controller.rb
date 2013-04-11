@@ -1,6 +1,7 @@
 class My::ProjectsController < ApplicationController
 
-	before_filter :login
+	# before_filter :login
+  before_filter :require_login
 
   def index
   	# Need to load projects for the current user, not Project.all
@@ -33,9 +34,9 @@ class My::ProjectsController < ApplicationController
 
 	private
 
-	def login
-		if !current_user
-	  		redirect_to new_session_path, :alert => "Please login to access your account!"
-	  end
-	end
+	# def login
+	# 	if !current_user
+	#   		redirect_to new_session_path, :alert => "Please login to access your account!"
+	#   end
+	# end
 end
