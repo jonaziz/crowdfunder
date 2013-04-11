@@ -16,3 +16,10 @@ user = User.create!(first_name: "John", last_name: "Doe", email: "john@doe.com",
     project1 = user.projects.create!(title: "Project #{i}", teaser: "Teaser text #{i}",
         description: "description #{i}", goal: 13000)
 end
+
+user = User.create!(first_name: "Bat", last_name: "man", email: "fake@example.com", password: "random")
+
+50.times do |i|
+    project1 = user.projects.create!(title: "Project #{i}", teaser: "Teaser text #{i}",
+        description: "description #{i}", goal: 13000)
+end

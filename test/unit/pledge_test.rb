@@ -6,8 +6,8 @@ class PledgeTest < ActiveSupport::TestCase
     assert_false pledge.save
 
     assert_include pledge.errors[:amount],  "can't be blank"
-    assert_include pledge.errors[:user],    "can't be blank" 
-    assert_include pledge.errors[:project], "can't be blank"
+    assert_include pledge.errors[:user_id],    "can't be blank" 
+    assert_include pledge.errors[:project_id], "can't be blank"
   end
 
   test "the pledge amount is a number" do
