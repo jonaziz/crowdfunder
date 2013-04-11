@@ -2,11 +2,20 @@ Crowdfunder::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
-  resources :projects do
+  # Better to exclude actions you won't be using in controller/app
+  # to avoid errors.
+  resources :projects, only: [:index, :show] do # projects/3  projects/3/edit  /projects
     resources :pledges, only: [:new, :create]
   end
-  resources :users, :except =>[:index, :destroy]
 
+  # Requires a different experience for user, thus needs a different
+  # controller.
+  namespace :my do
+    # Controller will be 'my/projects_controller.rb'
+    resources :projects   # /my/projects/3  /my/projects/3/edit  /my/projects
+  end
+
+  resources :users, :except =>[:index, :destroy]
   resource :session, :only => [:new, :create, :destroy]
 
   root :to => "welcome#index"

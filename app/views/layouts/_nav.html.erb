@@ -5,6 +5,7 @@
       <ul class="nav">
           <li class="<%= "active" if controller_name == "welcome"%>"><%= link_to "Home", root_url%></li>
           <li class="<%= "active" if controller_name == "projects"%>"><%= link_to "Projects", projects_url%></li>
+          <li class="<%= "active" if controller_name == "my/projects"%>"><%= link_to "My Projects", my_projects_path%></li>
       </ul>
 
       <div class="pull-right">
@@ -19,3 +20,8 @@
     </div>
   </div>
 </div>
+
+
+<!-- "_path" gives relative path and "_url" gives the full URL -->
+<!-- A symbol is a relative path, always -->
+<!-- When need URL? External communications (email), for example -->
