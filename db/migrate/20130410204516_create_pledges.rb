@@ -1,7 +1,7 @@
 class CreatePledges < ActiveRecord::Migration
   def change
     create_table :pledges do |t|
-    	t.integer :amount_in_cents
+      t.integer :amount
       t.integer :user_id
       t.integer :project_id
 

@@ -1,12 +1,8 @@
 class Pledge < ActiveRecord::Base
-  # attr_accessible :title, :body
-  belongs_to :project
-  belongs_to :user
-
   attr_accessible :amount
 
-	validates :user, presence: true
-	validates :project, presence: true
-	validates :amount, numericality: {greater_than: 0}
+  validates :amount, :presence => true
+  validates :user_id, :presence => true
+  validates :project_id, :presence => true
 
 end
